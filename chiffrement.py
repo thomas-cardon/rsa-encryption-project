@@ -50,4 +50,10 @@ while True:
 os.system('cls||clear')
 
 print("Texte reçu: " + text)
-print("P: " + repr(p) + " | Q: " + repr(q));
+print("P: " + repr(p) + " | Q: " + repr(q))
+
+n = p * q
+print("Module de chiffrement (n) = " + repr(n))
+
+indicEuler = (p - 1) * (q - 1)
+print("Indicatrice Euler = " + repr(indicEuler))
