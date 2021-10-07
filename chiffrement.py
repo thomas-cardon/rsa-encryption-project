@@ -90,23 +90,41 @@ while True:
 def exposantdechiffrement(a,b):
 
     if pgcd(a,b) == 1:
-        u = None
-        v = None
-        x = None
+        c = None
+        d = None
+        e = None
+        f = None
+        g = None
 
-        a = 
-        b =     + 1
-        1 = 
+        a = c * d + e
+        b = e * f + g
         
-        x = a*u + b*v; # u = indice de chiffrement
-        if x == 1:
-            return u
-        else:
-            return -1
-    else:
-        raise Exception()
+    if g == 1:
+        g = b*1 - e*f
+        g =  
 
-print("l'exposant de chiffrement est:");
-print(lexposantdechiffrement(e, indicEuler));
+    elif e == 1:
+        e = a*1 - c*d
+
+    else :
+      print("/!\ ça ne marche point.")
+
+
+    
+          
+
+
+        
+    # x = a*u + b*v;  u = indice de chiffrement
+    # if x == 1:
+    #        return u
+    #    else:
+    #        return -1
+    #else:
+    #    raise Exception() ```
+
+#print("l'exposant de chiffrement est:");
+#print ("u")
+#print(lexposantdechiffrement(e, indicEuler));
 
 
