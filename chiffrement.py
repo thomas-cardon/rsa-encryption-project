@@ -96,15 +96,22 @@ def exposantdechiffrement(a,b):
         f = None
         g = None
 
-        a = c * d + e
-        b = e * f + g
+        a = c * d + e2
+        b = e1 * f + g
+
+        e1 = e2
         
     if g == 1:
-        g = b*1 - e*f
-        g =  
+        g = b*1 - e1*f
+        e2 = a - c*d
+        g = b*1 - e2*f
 
-    elif e == 1:
-        e = a*1 - c*d
+    #elif e2 == 1:
+    #   e2 = a*1 - c*d
+    #    e1 = b - 
+    #   e1 = 
+
+
 
     else :
       print("/!\ ça ne marche point.")
