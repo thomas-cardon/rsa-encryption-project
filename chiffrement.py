@@ -1,4 +1,3 @@
-py
 import os
 
 print("Programme de chiffrement")
@@ -69,8 +68,6 @@ def premiersentreeux(a,b):
     if(pgcd(a,b) == 1 ):
 	    return True
     return False
-
-
 
 while True:
     try:
