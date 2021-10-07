@@ -1,4 +1,4 @@
-import os
+import os, sys
 
 print("Programme de chiffrement")
 #Choisir deux nombres premiers
@@ -6,6 +6,7 @@ text = input("Entrez le texte: ")
 
 p = None
 q = None
+e = None
 
 def estNombrePremier(num):
     if num > 1:
@@ -73,7 +74,7 @@ def premiersentreeux(a,b):
 
 while True:
     try:
-        e = int(input("choisir un entier naturel inférieur à l'indice Euler:"))
+        e = int(input("Choisir un entier naturel inférieur à l'indice Euler pour l'exposant de chiffrement:"))
         
         if e > indicEuler:
             raise ValueError()
@@ -87,51 +88,21 @@ while True:
     except Exception:
         print("/!\ Cette valeur n'est pas un nombre premier à l'indice Euler.")
 
-def exposantdechiffrement(a,b):
+print("{0}: {1}".format("P", p))
+print("{0}: {1}".format("Q", q))
+print("{0}: {1}".format("E", e))
 
-    if pgcd(a,b) == 1:
-        c = None
-        d = None
-        e = None
-        f = None
-        g = None
+def euclideEtendu(a, b):
+    # L'algorithme s'arrête quand on trouve 0 
+    if a == 0:
+        return b, 0, 1
+    else:
+      # Mettre à jour les coefficients de Bezout en fonction des résultats obtenus 
+      pgcd, x, y = euclideEtendu(b % a, a)
+      # Retourner le PGCD, coeffA, et coeffB
+      return pgcd, y - (b // a) * x, x
 
-        a = c * d + e2
-        b = e1 * f + g
+d = euclideEtendu(e, indicEuler)[1] # Obtenir le coeff. a, soit la clé de déchiffrement
 
-        e1 = e2
-        
-    if g == 1:
-        g = b*1 - e1*f
-        e2 = a - c*d
-        g = b*1 - e2*f
-
-    #elif e2 == 1:
-    #   e2 = a*1 - c*d
-    #    e1 = b - 
-    #   e1 = 
-
-
-
-    else :
-      print("/!\ ça ne marche point.")
-
-
-    
-          
-
-
-        
-    # x = a*u + b*v;  u = indice de chiffrement
-    # if x == 1:
-    #        return u
-    #    else:
-    #        return -1
-    #else:
-    #    raise Exception() ```
-
-#print("l'exposant de chiffrement est:");
-#print ("u")
-#print(lexposantdechiffrement(e, indicEuler));
-
+print("{0}: {1}".format("D", d))
 
