@@ -1,6 +1,6 @@
 print("Lecture de l'image")
 
-fileInput = open("./images/16x16.png", 'rb')
+fileInput = open("./images/64x64.png", 'rb')
 
 image = fileInput.read()
 fileInput.close()
