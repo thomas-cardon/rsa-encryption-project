@@ -52,7 +52,7 @@ os.system('cls||clear')
 
 print("Texte reçu: " + text)
 print("P: " + repr(p) + " | Q: " + repr(q))
-#moul e chiffrement :
+#module chiffrement :
 n = p * q
 print("Module de chiffrement (n) = " + repr(n))
 
@@ -60,14 +60,16 @@ indicEuler = (p - 1) * (q - 1)
 print("Indicatrice Euler = " + repr(indicEuler))
 
 def pgcd(a,b):
-	while b:
-		a, b = b, a%b
-	return a
+    while b:
+        a, b = b, a%b
+    return a
     
 def premiersentreeux(a,b):
     if(pgcd(a,b) == 1 ):
-	    return True
+        return True
     return False
+
+
 
 while True:
     try:
@@ -76,7 +78,7 @@ while True:
         if e > indicEuler:
             raise ValueError()
         
-        if premiersentreeux(e,indicEuler) == True:
+        if premiersentreeux(e,indicEuler) == False:
            raise Exception()
         break;
     
@@ -84,3 +86,27 @@ while True:
         print("/!\ Cette valeur n'est pas un chiffre inférieur à l'indice Euler.")
     except Exception:
         print("/!\ Cette valeur n'est pas un nombre premier à l'indice Euler.")
+
+def exposantdechiffrement(a,b):
+
+    if pgcd(a,b) == 1:
+        u = None
+        v = None
+        x = None
+
+        a = 
+        b =     + 1
+        1 = 
+        
+        x = a*u + b*v; # u = indice de chiffrement
+        if x == 1:
+            return u
+        else:
+            return -1
+    else:
+        raise Exception()
+
+print("l'exposant de chiffrement est:");
+print(lexposantdechiffrement(e, indicEuler));
+
+
