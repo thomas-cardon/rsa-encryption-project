@@ -1,2 +1,2 @@
 language = "python3"
-run = "python ./chiffrement.py"
+run = "python ./start.py"
