@@ -1,6 +1,6 @@
 from random import randint
 
-def pgcd(a,b):
+def pgcd2(a,b):
     print("--- Calcul PGCD ---");
     while b:
       print (a, "/" , b);
@@ -9,16 +9,15 @@ def pgcd(a,b):
     print("--- Fin Calcul PGCD ---")
     return a
 
-def pgcd2(a, b):
-    print("--- Calcul PGCD ---")
-    while b > 0:
-        r = (a - b) * (a // b)
-        a = b
-        b = r
-        print(a, b, r)
+def pgcd(a, b):
+    print("Calcul PGCD(a =", a, "b =", b, ")")
+    while a != b:
+      if (a > b):
+        a = a - b
+      else:
+        b = b - a
 
-    print("--- Fin Calcul PGCD ---")
-    print("Le PGCD de a=" + repr(a) + ",b=" + repr(b) + " est: " + repr(a))
+    print("Résultat: ", a)
     return a
 
 def premierAleatoire(debut, ecart):

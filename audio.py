@@ -1,31 +1,20 @@
-"""PyAudio Example: Play a wave file."""
+from chiffrement import chiffrer, choixCle, clePublique
 
-import pyaudio
-import wave
+def start():
+  p, q, e = choixCle(100, 1000)
+  pub = clePublique(p, q, e)
 
-CHUNK = 1024
-wf = wave.open("audio.wav", 'rb')
+  print("P: {0} | Q: {1} | E: {2}".format(p, q, e))
+  print("Clé publique: " + repr(pub))
 
-# instantiate PyAudio (1)
-p = pyaudio.PyAudio()
+  bytearr = []
 
-# open stream (2)
-stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
-                channels=wf.getnchannels(),
-                rate=wf.getframerate(),
-                output=True)
+  with open("audio.wav", "rb") as f:
+    fc = f.read()
+    while(fc):
+      bytearr.append(chiffrer(int.from_bytes(fc, "big"), pub))
 
-# read data
-data = wf.readframes(CHUNK)
+  with open("encrypted.wav", "w") as f:
+    f.write(bytes(bytearr))
 
-# play stream (3)
-while len(data) > 0:
-    stream.write(data)
-    data = wf.readframes(CHUNK)
-
-# stop stream (4)
-stream.stop_stream()
-stream.close()
-
-# close PyAudio (5)
-p.terminate()
+start()
