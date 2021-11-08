@@ -1,14 +1,5 @@
 from random import randint
 
-def pgcd2(a,b):
-    print("--- Calcul PGCD ---");
-    while b:
-      print (a, "/" , b);
-      a, b = b, a%b
-      print("ancien b :", a," et reste de a/b :", b)
-    print("--- Fin Calcul PGCD ---")
-    return a
-
 def pgcd(a, b):
     print("Calcul PGCD(a =", a, "b =", b, ")")
     while a != b:
@@ -25,7 +16,6 @@ def premierAleatoire(debut, ecart):
     while not estPremier(n):
         n = randint(debut, debut + ecart)
     return n
-
 
 def premierAleatoireAvec(n):
     m = randint(2, n - 1)
@@ -75,11 +65,8 @@ def euclideEtendu(a,b):
 
 
 def estPremier(num):
-    try:
-        num = int(num)
-        if num < 2: return False
-    except ValueError:
-        return False
+    num = int(num)
+    if num < 2: return False
     else:
         if num > 2 and num % 2 == 0:
             return False
@@ -95,12 +82,8 @@ def inverseModulaire(e, m):  # A comprendre ou à refaire
         return u % m
 
 
-def expoModulaire(a, n, m):  # A comprendre ou à refaire
-    if n == 0:
-        return 1
-    if n % 2 == 0:
-        return (expoModulaire(a, n // 2, m)**2) % m
-    return (a * expoModulaire(a, n // 2, m)**2) % m
+def exponentiationModulaire(M, e, n) :
+  return pow(M, e) % n # C = M^e mod n
 
 
 def choixCle(min, max):
@@ -140,10 +123,10 @@ def demanderNombre(val):
 def chiffrer(M, clePub):
     n, e = clePub
     if M < n:
-        return expoModulaire(M, e, n)
+        return exponentiationModulaire(M, e, n)
 
 
 def dechiffrer(M, clePriv):
     n, d = clePriv
     if M < n:
-        return expoModulaire(M, d, n)
+        return exponentiationModulaire(M, d, n)

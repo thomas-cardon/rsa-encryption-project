@@ -1,4 +1,4 @@
-<from PIL import Image
+from PIL import Image
 from chiffrement import chiffrer, dechiffrer, choixCle, clePublique
 
 import os
@@ -51,22 +51,24 @@ def dechiffrerImage(cle):
 
   for x in range(width):
     for y in range(height):
-        r, g, b = img.getpixel((x, y))
-        print(r, g, b)
-        
-        r = dechiffrer(r, cle)
-        g = dechiffrer(g, cle)
-        b = dechiffrer(b, cle)
+      r, g, b = img.getpixel((x, y))
+      print(r, g, b)
+      
+      r = dechiffrer(r, cle)
+      g = dechiffrer(g, cle)
+      b = dechiffrer(b, cle)
 
-        print(r, g, b)
+      print(r, g, b)
 
-        r = r % 256
-        g = g % 256
-        b = b % 256
-        
-        print(r, g, b)
+      r = r % 256
+      g = g % 256
+      b = b % 256
 
-        img.putpixel((x, y), (r, g, b))
+      
+      
+      print(r, g, b)
+
+      img.putpixel((x, y), (r, g, b))
 
   # Fin du déchiffrement
   print('Déchiffrement terminé')
